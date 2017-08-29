@@ -6,7 +6,8 @@
 (defsystem cl21
   :version "0.1.0"
   :license "Public Domain"
-  :depends-on (:closer-mop
+  :depends-on (:arrow-macros
+               :closer-mop
                :trivial-types
                :trivial-gray-streams
                :named-readtables
@@ -37,6 +38,7 @@
                    (:file "package" :depends-on ("readtable"))
                    (:file "object")
                    (:file "function")
+                   (:file "arrows")
                    (:file "structure")
                    (:file "symbol")
                    (:file "number")

@@ -266,6 +266,7 @@
                            :cl21.core.generic
                            :cl21.core.repl
                            :cl21.core.readtable
+                           :cl21.core.arrows
                            :cl21.core.environment))
   (cl:let ((package (cl:find-package package-name)))
     (cl:unless package
