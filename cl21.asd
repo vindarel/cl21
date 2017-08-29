@@ -15,6 +15,7 @@
                :split-sequence
                :alexandria
                :repl-utilities
+               :cl-arrows
                #+sbcl :sb-cltl2
 
                ;; for cl21.os
@@ -32,7 +33,8 @@
                   :pathname "core"
                   :depends-on ("internal")
                   :components
-                  ((:file "types")
+                  ((:file "arrows")
+                   (:file "types")
                    (:file "condition")
                    (:file "package" :depends-on ("readtable"))
                    (:file "object")

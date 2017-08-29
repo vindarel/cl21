@@ -250,6 +250,33 @@ For that reason, CL21 doesn't have CL's `mapc` and `mapl`. `maphash` exists, but
 
 CL21 doesn't have `mapcar`. Use `map` for instead.
 
+## Threading macros
+
+CL21 imports threading macros from
+[cl-arrows](https://github.com/nightfly19/cl-arrows): `->`, `->>`, `-<>` and `-<>>`:
+
+```common-lisp
+(-> 3
+    (expt 2))  ; insert as first argument
+=> 9
+
+(->> 3
+     (expt 2))  ; insert as last argument
+=> 8
+
+(-<>> (list 1 2 3)
+      (remove-if #'oddp <> :count 1 :from-end t) ; substitute <>
+      (reduce #'+)                               ; insert last
+      /)                                         ; list designator
+=> 1/3
+
+(let ((x 3))
+  (-<> (incf x)     ; (let ((r (incf x)))
+       (+ <> <>)))  ;   (+ r r))
+=> 8
+```
+
+
 ## Abstract classes
 
 CL21 provides a way to define a data structure which is close to the language.

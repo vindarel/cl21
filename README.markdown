@@ -81,6 +81,14 @@ Discussion is highly welcome, join the issues thread and post some ideas!
 (keep-if #'(and integerp (or oddp zerop)) (0.. 10))    ;=> (0 1 3 5 7 9)
 
 
+;; Threading macros
+(-<>> (list 1 2 3)
+      (remove-if #'oddp <> :count 1 :from-end t)
+      (reduce #'+)
+      /)
+=> 1/3
+
+
 ;; Regular Expression (based on cl-ppcre)
 
 (use-package :cl21.re)   ; in/use-package are redefined so that they
